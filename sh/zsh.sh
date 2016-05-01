@@ -3,6 +3,8 @@
 DOTPATH=$HOME/.dotfiles
 DOT_FILES=( .zshrc .zprofile .zshenv )
 
+sudo apt-get install zsh
+
 for file in ${DOT_FILES[@]}
 do
     if [ -a $HOME/$file ]; then
