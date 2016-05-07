@@ -1,3 +1,6 @@
 languages: c
 
-script: setup.sh --shell=zsh -gvn
+os:
+    - linux
+
+script: ./setup.sh --shell=zsh -gvn
