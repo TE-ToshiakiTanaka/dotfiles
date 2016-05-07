@@ -8,7 +8,7 @@ if [ "$(uname)" == 'Darwin' ]; then
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     # install nodebrew.
-    sudo apt-get install zsh
+    sudo apt-get -y install zsh
     for file in ${DOT_FILES[@]}
     do
         if [ -a $HOME/$file ]; then

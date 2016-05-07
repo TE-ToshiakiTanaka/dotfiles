@@ -5,7 +5,7 @@ if [ "$(uname)" == 'Darwin' ]; then
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     # install nodebrew.
-    sudo apt-get install curl
+    sudo apt-get -y install curl
     curl -L git.io/nodebrew | perl - setup
     echo "if [[ -f ~/.nodebrew/current/bin ]]; then " >> ~/.bashrc
     echo "\texport PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.bashrc

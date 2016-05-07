@@ -5,9 +5,9 @@ if [ "$(uname)" == 'Darwin' ]; then
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     # install nodebrew.
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install build-essential curl git openssh-server checkinstall libcurl4-openssl-dev
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install build-essential curl git openssh-server checkinstall libcurl4-openssl-dev
 
 elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW64_NT' ]; then
     echo 'MINGW'
