@@ -1,0 +1,3 @@
+languages: c
+
+script: setup.sh --shell=zsh -gvn

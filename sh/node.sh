@@ -1,19 +1,25 @@
 #! /bin/bash
 
-sudo apt-get install curl
-
 if [ "$(uname)" == 'Darwin' ]; then
     echo "Darwin"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     # install nodebrew.
+    sudo apt-get install curl
     curl -L git.io/nodebrew | perl - setup
-    echo "export PATH=$HOME/.nodebrew/current/bin:$PATH" >> ~/.bashrc
+    echo "if [[ -f ~/.nodebrew/current/bin ]]; then " >> ~/.bashrc
+    echo "\texport PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.bashrc
+    echo "\tnodebrew use latest" >> ~/.bashrc
+    echo "fi" >> ~/.bashrc
     source ~/.bashrc
+
     if [ ! -e ~/.zshrc.local ]; then
         touch ~/.zshrc.local
     fi
-    echo "export PATH=$HOME/.nodebrew/current/bin:$PATH" >> ~/.zshrc.local
+    echo "if [[ -f ~/.nodebrew/current/bin ]]; then " >> ~/.zshrc.local
+    echo "\texport PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.zshrc.local
+    echo "\tnodebrew use latest" >> ~/.zshrc.local
+    echo "fi" >> ~/.zshrc.local
 
 elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW64_NT' ]; then
     echo 'MINGW'
