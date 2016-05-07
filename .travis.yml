@@ -8,4 +8,4 @@ before_script:
     - chmod +x -R sh/*.sh
 
 script:
-    - ./setup.sh --shell=zsh -gvn
+    - sudo ./setup.sh --shell=zsh -gvn
